@@ -1,4 +1,4 @@
-# To show this app works fine, we need to create a RDS instance at first.
+# To show this app works fine, we need to create a RDS instance at first
 
 # Import Flask module
 # As we know, we are gonna import necessary libraries. We've also imported 
