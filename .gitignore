@@ -16,3 +16,27 @@
 
 # .gitignore files for inside of terraform_files
 terraform_files/*.gitignore
+
+## This is because the main branch you have created on your machine is not the same as the main branch that GitHub has. They have the same name but not the same commits.
+## Try this:
+
+## Rename your `main` branch
+# git branch -m main-old
+
+## Fetch commits from GitHub
+# git fetch origin
+
+## Create new `main` branch from GitHub's
+# git checkout --track origin/main
+
+## This will create a branch called main set to track the main branch on origin (GitHub). 
+## You should now be able to run git log and see the commits you've already made. If you make more changes you can commit them and push. 
+## As long as your machine has every commit that GitHub has, pushing should work fine.
+## If you have made some commits on your machine already, you'll have to rebase these onto the commits from GitHub. Run git log main-old and see if there are any commits you want to keep. 
+## If there are, run this:
+
+# git rebase --root main-old --onto main
+# git checkout main
+# git merge main-old
+# git branch --delete main-old
+# git push
